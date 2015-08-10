@@ -1,0 +1,406 @@
+R2 sends an INIT: router_id 2
+R2 receives a CIRCUIT_DB: nbr_link 3 with links: 
+	 link 2, cost 2
+	 link 7, cost 7
+	 link 3, cost 3
+
+R2 sends a HELLO: router_id 2, link_id 2
+R2 sends a HELLO: router_id 2, link_id 7
+R2 sends a HELLO: router_id 2, link_id 3
+R2 receives a HELLO: router_id 3, link_id 3
+
+#Topology Database:
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+################################
+
+
+#RIB:
+R2 -> R1 -> inf,inf
+R2 -> R2 -> Local,0
+R2 -> R3 -> inf,inf
+R2 -> R4 -> inf,inf
+R2 -> R5 -> inf,inf
+################################
+
+R2 sends an LSPDU: sender 2, router_id 2, link_id 2, cost 2, via 3
+R2 sends an LSPDU: sender 2, router_id 2, link_id 7, cost 7, via 3
+R2 sends an LSPDU: sender 2, router_id 2, link_id 3, cost 3, via 3
+R2 receives a HELLO: router_id 4, link_id 7
+
+#Topology Database:
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+################################
+
+
+#RIB:
+R2 -> R1 -> inf,inf
+R2 -> R2 -> Local,0
+R2 -> R3 -> inf,inf
+R2 -> R4 -> inf,inf
+R2 -> R5 -> inf,inf
+################################
+
+R2 sends an LSPDU: sender 2, router_id 2, link_id 2, cost 2, via 7
+R2 sends an LSPDU: sender 2, router_id 2, link_id 7, cost 7, via 7
+R2 sends an LSPDU: sender 2, router_id 2, link_id 3, cost 3, via 7
+R2 receives a HELLO: router_id 5, link_id 2
+
+#Topology Database:
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+################################
+
+
+#RIB:
+R2 -> R1 -> inf,inf
+R2 -> R2 -> Local,0
+R2 -> R3 -> inf,inf
+R2 -> R4 -> inf,inf
+R2 -> R5 -> inf,inf
+################################
+
+R2 sends an LSPDU: sender 2, router_id 2, link_id 2, cost 2, via 2
+R2 sends an LSPDU: sender 2, router_id 2, link_id 7, cost 7, via 2
+R2 sends an LSPDU: sender 2, router_id 2, link_id 3, cost 3, via 2
+R2 receives an LSPDU: sender 3, router_id 3, link_id 3, cost 3, via 3
+
+#Topology Database:
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 1
+R2 -> R3 link 3 cost 3
+################################
+
+R2 sends an LSPDU: sender 2, router_id 3, link_id 3, cost 3, via 7
+R2 sends an LSPDU: sender 2, router_id 3, link_id 3, cost 3, via 2
+
+#RIB:
+R2 -> R1 -> inf,inf
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 3, router_id 3, link_id 4, cost 4, via 3
+
+#Topology Database:
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+################################
+
+R2 sends an LSPDU: sender 2, router_id 3, link_id 4, cost 4, via 7
+R2 sends an LSPDU: sender 2, router_id 3, link_id 4, cost 4, via 2
+
+#RIB:
+R2 -> R1 -> inf,inf
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 5, router_id 5, link_id 1, cost 1, via 2
+
+#Topology Database:
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R5 nbr link 1
+R2 -> R5 link 1 cost 1
+################################
+
+R2 sends an LSPDU: sender 2, router_id 5, link_id 1, cost 1, via 3
+R2 sends an LSPDU: sender 2, router_id 5, link_id 1, cost 1, via 7
+
+#RIB:
+R2 -> R1 -> inf,inf
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 5, router_id 5, link_id 2, cost 2, via 2
+
+#Topology Database:
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R5 nbr link 2
+R2 -> R5 link 1 cost 1
+R2 -> R5 link 2 cost 2
+################################
+
+R2 sends an LSPDU: sender 2, router_id 5, link_id 2, cost 2, via 3
+R2 sends an LSPDU: sender 2, router_id 5, link_id 2, cost 2, via 7
+
+#RIB:
+R2 -> R1 -> inf,inf
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 5, router_id 5, link_id 6, cost 6, via 2
+
+#Topology Database:
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R5 nbr link 3
+R2 -> R5 link 1 cost 1
+R2 -> R5 link 2 cost 2
+R2 -> R5 link 6 cost 6
+################################
+
+R2 sends an LSPDU: sender 2, router_id 5, link_id 6, cost 6, via 3
+R2 sends an LSPDU: sender 2, router_id 5, link_id 6, cost 6, via 7
+
+#RIB:
+R2 -> R1 -> inf,inf
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 5, router_id 1, link_id 1, cost 1, via 2
+
+#Topology Database:
+R2 -> R1 nbr link 1
+R2 -> R1 link 1 cost 1
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R5 nbr link 3
+R2 -> R5 link 1 cost 1
+R2 -> R5 link 2 cost 2
+R2 -> R5 link 6 cost 6
+################################
+
+R2 sends an LSPDU: sender 2, router_id 1, link_id 1, cost 1, via 3
+R2 sends an LSPDU: sender 2, router_id 1, link_id 1, cost 1, via 7
+
+#RIB:
+R2 -> R1 -> R5,3
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 3, router_id 4, link_id 4, cost 4, via 3
+
+#Topology Database:
+R2 -> R1 nbr link 1
+R2 -> R1 link 1 cost 1
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R4 nbr link 1
+R2 -> R4 link 4 cost 4
+R2 -> R5 nbr link 3
+R2 -> R5 link 1 cost 1
+R2 -> R5 link 2 cost 2
+R2 -> R5 link 6 cost 6
+################################
+
+R2 sends an LSPDU: sender 2, router_id 4, link_id 4, cost 4, via 7
+R2 sends an LSPDU: sender 2, router_id 4, link_id 4, cost 4, via 2
+
+#RIB:
+R2 -> R1 -> R5,3
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 3, router_id 4, link_id 7, cost 7, via 3
+
+#Topology Database:
+R2 -> R1 nbr link 1
+R2 -> R1 link 1 cost 1
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R4 nbr link 2
+R2 -> R4 link 4 cost 4
+R2 -> R4 link 7 cost 7
+R2 -> R5 nbr link 3
+R2 -> R5 link 1 cost 1
+R2 -> R5 link 2 cost 2
+R2 -> R5 link 6 cost 6
+################################
+
+R2 sends an LSPDU: sender 2, router_id 4, link_id 7, cost 7, via 7
+R2 sends an LSPDU: sender 2, router_id 4, link_id 7, cost 7, via 2
+
+#RIB:
+R2 -> R1 -> R5,3
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 4, router_id 4, link_id 4, cost 4, via 7
+R2 receives an LSPDU: sender 3, router_id 4, link_id 6, cost 6, via 3
+
+#Topology Database:
+R2 -> R1 nbr link 1
+R2 -> R1 link 1 cost 1
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R4 nbr link 3
+R2 -> R4 link 4 cost 4
+R2 -> R4 link 7 cost 7
+R2 -> R4 link 6 cost 6
+R2 -> R5 nbr link 3
+R2 -> R5 link 1 cost 1
+R2 -> R5 link 2 cost 2
+R2 -> R5 link 6 cost 6
+################################
+
+R2 sends an LSPDU: sender 2, router_id 4, link_id 6, cost 6, via 7
+R2 sends an LSPDU: sender 2, router_id 4, link_id 6, cost 6, via 2
+
+#RIB:
+R2 -> R1 -> R5,3
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 4, router_id 4, link_id 7, cost 7, via 7
+R2 receives an LSPDU: sender 5, router_id 1, link_id 5, cost 5, via 2
+
+#Topology Database:
+R2 -> R1 nbr link 2
+R2 -> R1 link 1 cost 1
+R2 -> R1 link 5 cost 5
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R4 nbr link 3
+R2 -> R4 link 4 cost 4
+R2 -> R4 link 7 cost 7
+R2 -> R4 link 6 cost 6
+R2 -> R5 nbr link 3
+R2 -> R5 link 1 cost 1
+R2 -> R5 link 2 cost 2
+R2 -> R5 link 6 cost 6
+################################
+
+R2 sends an LSPDU: sender 2, router_id 1, link_id 5, cost 5, via 3
+R2 sends an LSPDU: sender 2, router_id 1, link_id 5, cost 5, via 7
+
+#RIB:
+R2 -> R1 -> R5,3
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 3, router_id 4, link_id 5, cost 5, via 3
+
+#Topology Database:
+R2 -> R1 nbr link 2
+R2 -> R1 link 1 cost 1
+R2 -> R1 link 5 cost 5
+R2 -> R2 nbr link 3
+R2 -> R2 link 2 cost 2
+R2 -> R2 link 7 cost 7
+R2 -> R2 link 3 cost 3
+R2 -> R3 nbr link 2
+R2 -> R3 link 3 cost 3
+R2 -> R3 link 4 cost 4
+R2 -> R4 nbr link 4
+R2 -> R4 link 4 cost 4
+R2 -> R4 link 7 cost 7
+R2 -> R4 link 6 cost 6
+R2 -> R4 link 5 cost 5
+R2 -> R5 nbr link 3
+R2 -> R5 link 1 cost 1
+R2 -> R5 link 2 cost 2
+R2 -> R5 link 6 cost 6
+################################
+
+R2 sends an LSPDU: sender 2, router_id 4, link_id 5, cost 5, via 7
+R2 sends an LSPDU: sender 2, router_id 4, link_id 5, cost 5, via 2
+
+#RIB:
+R2 -> R1 -> R5,3
+R2 -> R2 -> Local,0
+R2 -> R3 -> R3,3
+R2 -> R4 -> R4,7
+R2 -> R5 -> R5,2
+################################
+
+R2 receives an LSPDU: sender 4, router_id 4, link_id 6, cost 6, via 7
+R2 receives an LSPDU: sender 5, router_id 4, link_id 4, cost 4, via 2
+R2 receives an LSPDU: sender 4, router_id 4, link_id 5, cost 5, via 7
+R2 receives an LSPDU: sender 4, router_id 3, link_id 3, cost 3, via 7
+R2 receives an LSPDU: sender 5, router_id 4, link_id 7, cost 7, via 2
+R2 receives an LSPDU: sender 4, router_id 3, link_id 4, cost 4, via 7
+R2 receives an LSPDU: sender 5, router_id 4, link_id 6, cost 6, via 2
+R2 receives an LSPDU: sender 4, router_id 1, link_id 1, cost 1, via 7
+R2 receives an LSPDU: sender 4, router_id 1, link_id 5, cost 5, via 7
+R2 receives an LSPDU: sender 3, router_id 1, link_id 5, cost 5, via 3
+R2 receives an LSPDU: sender 5, router_id 4, link_id 5, cost 5, via 2
+R2 receives an LSPDU: sender 4, router_id 2, link_id 2, cost 2, via 7
+R2 receives an LSPDU: sender 4, router_id 5, link_id 1, cost 1, via 7
+R2 receives an LSPDU: sender 4, router_id 5, link_id 2, cost 2, via 7
+R2 receives an LSPDU: sender 4, router_id 5, link_id 6, cost 6, via 7

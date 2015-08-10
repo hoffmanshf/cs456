@@ -1,0 +1,45 @@
+CS456 - Assignment #2 - Readme
+Justin Franchetto
+20375706
+
+About:
+The files sender.java and receiver.java are written to fulfill the requirements outlined in Assignment #2. 
+The utilize the provided emulator and packet.java definition, which has been modified to make global information public instead of private. 
+
+Compilation:
+To compile, use the makefile by executing the make command. This will produce the Sender and Receiver executables. 
+
+Execution:
+1) Execute the emulator: ./nEmulator-linux386 11000 ubuntu1204-004 15000 12000 ubuntu1204-002 14000 1 0.2 1
+2) Execute the receiver: java Receiver ubuntu1204-006 12000 15000 "output.txt"
+3) Execute the sender:   java Sender ubuntu1204-006 11000 14000 "test.txt"
+
+Parameters:
+	Emulator: 
+	<emulator's receiving UDP port number in the forward (sender)direction>,
+	<receiver’s network address>,
+	<receiver’s receiving UDP port number>,
+	<emulator's receiving UDP port number in the backward(receiver)direction>
+	<sender’s network addr	<sender’s receiving UDP port number>,
+	<maximum delay of the link in units of millisecond>,
+	<packet discard probability>,
+	<verbose-mode>
+
+	Receiver: 
+	<hostname for the network emulator>,
+	<UDP port number used by the link emulator to receive ACKs from the receiver>,
+	<UDP port number used by the receiver to receive data from the emulator>,
+	<name of the file into which the received data is written>
+
+	Sender: 
+	<host address of the network emulator>,
+	<UDP port number used by the emulatoro receive data from the sender>,
+	<UDP port number used by the sender to receive ACKs from the emulator>,
+	<name of the file to be transferred>
+
+Machines:
+These programs were tested across three different machines in the student environment:
+	1) Emulator was run on ubuntu1204-006
+	2) Receiver was run on ubuntu1204-004
+	3) Sender was run on ubuntu1204-002
+
